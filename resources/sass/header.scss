@@ -1,0 +1,83 @@
+$iam-header-height: 5.5rem !default;
+$iam-header-background-color: #ffffff !default;
+$iam-header-border-color: #d0d0d0 !default;
+$iam-header-active-indicator-height: 8px !default;
+$iam-header-active-indicator-color: $iam-header-border-color !default;
+
+.iam-header {
+  background-color: $iam-header-background-color;
+  display: grid;
+  height: $iam-header-height;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+
+  // Leading 100px to ensure the service logos are correctly centred
+  // 1200px is the maximum allowed width of the logos
+  grid-template-columns: minmax(100px, 1fr) minmax(auto, 1200px) minmax(100px, 1fr);
+  grid-template-areas: "spacer services toggle";
+
+  &::after {
+    border-bottom: 1px solid $iam-header-border-color;
+    content: '';
+    margin-bottom: 1rem;
+    position: absolute;
+    top: $iam-header-height;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.iam-header__services {
+  display: flex;
+  grid-area: services;
+  justify-content: space-between;
+}
+
+.iam-header__item {
+  align-items: center;
+  display: flex;
+  height: $iam-header-height;
+  justify-content: center;
+
+  &::after {
+    background-color: $iam-header-active-indicator-color;
+    bottom: 0;
+    content: '';
+    height: $iam-header-active-indicator-height;
+    opacity: 0;
+    position: absolute;
+    transition: all ease-in-out .2s;
+    width: 100px;
+    z-index: 2;
+  }
+
+  &:not(.iam-header__item--disabled):hover::after,
+  &:not(.iam-header__item--disabled).iam-header__item--active::after {
+    opacity: 1;
+    bottom: $iam-header-active-indicator-height / -2;
+    bottom: calc(#{$iam-header-active-indicator-height} / -2);
+  }
+
+  img {
+    height: 100%;
+    max-width: 100%;
+  }
+}
+
+.iam-header__item--disabled img {
+  filter: brightness(350%) saturate(20%);
+}
+
+.iam-header__menu-toggle {
+  align-items: center;
+  display: flex;
+  grid-area: toggle;
+  justify-content: flex-end;
+
+  img {
+    height: 25px;
+    margin-right: 40px;
+    width: 40px;
+  }
+}
