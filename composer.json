@@ -16,5 +16,12 @@
         "psr-4": {
             "IAMProperty\\SharedAssets\\" : "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "IAMProperty\\SharedAssets\\AssetServiceProvider"
+            ]
+        }
     }
 }
