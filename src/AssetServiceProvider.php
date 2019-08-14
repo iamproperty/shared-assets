@@ -15,5 +15,7 @@ class AssetServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/sass/header.scss' => resource_path('sass/vendor/iamproperty/header.scss')
         ], ['assets', 'sass']);
+
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'iamproperty');
     }
 }
