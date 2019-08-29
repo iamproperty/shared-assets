@@ -13,6 +13,10 @@ class AssetServiceProvider extends ServiceProvider
         ], ['assets', 'logos']);
 
         $this->publishes([
+            __DIR__.'/../resources/assets/icons' => public_path('img/icons')
+        ], ['assets', 'icons']);
+
+        $this->publishes([
             __DIR__.'/../resources/sass/header.scss' => resource_path('sass/vendor/iamproperty/header.scss')
         ], ['assets', 'sass']);
 
