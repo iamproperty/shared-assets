@@ -8,18 +8,6 @@ class AssetServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->publishes([
-            __DIR__.'/../resources/assets/brand-logos' => public_path('img/brand-logos')
-        ], ['assets', 'logos']);
-
-        $this->publishes([
-            __DIR__.'/../resources/assets/icons' => public_path('img/icons')
-        ], ['assets', 'icons']);
-
-        $this->publishes([
-            __DIR__.'/../resources/sass/header.scss' => resource_path('sass/vendor/iamproperty/header.scss')
-        ], ['assets', 'sass']);
-
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'iamproperty');
     }
 }
