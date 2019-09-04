@@ -10,7 +10,7 @@
     ],
     "license": "proprietary",
     "require": {
-        "illuminate/support": "^5.7"
+        "illuminate/support": "^5.6|^5.7|^6"
     },
     "autoload": {
         "psr-4": {
